@@ -38,9 +38,21 @@ class _LoginState extends State<Login> {
           ),
           FlatButton(
             child: Text("Login"),
-            onPressed: (){
-
-            },
+            onPressed: ()async {
+              try {
+                final loggedInUser = await _auth.signInWithEmailAndPassword(
+                    email: email, password: password);
+                if (loggedInUser != null) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Home()),
+                  );
+                }
+              }
+              catch (e) {
+                print(e);
+              }
+            }
           ),
         ],
       )

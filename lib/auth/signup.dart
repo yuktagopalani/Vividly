@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:vividly/auth/login.dart';
 import 'package:vividly/home.dart';
 class SignUp extends StatefulWidget {
   @override
@@ -54,6 +55,12 @@ class _SignUpState extends State<SignUp> {
                 }
               },
             ),
+            FlatButton(onPressed: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Login()),
+              );
+            }, child: Text("Login")),
           ],
         )
     );
